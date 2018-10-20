@@ -386,10 +386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9389a79f06381e44db3c67f83d56eadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 1
+  runSpeed: 3
   jumpSpeed: 3
   fallSpeed: 4
-  jumpHeight: 1
+  jumpHeight: 1.2
 --- !u!70 &4535582236425377506
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -403,9 +403,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: -0.03}
-  m_Size: {x: 1.23, y: 0.91}
-  m_Direction: 1
+  m_Offset: {x: 0.22474861, y: -0.003050357}
+  m_Size: {x: 0.5973873, y: 0.74830586}
+  m_Direction: 0
 --- !u!50 &344914591
 Rigidbody2D:
   serializedVersion: 4
