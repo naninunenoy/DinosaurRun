@@ -11,7 +11,7 @@ public class Dinosaur : MonoBehaviour {
     [SerializeField] float jumpHeight = 1.0F;
 
     private Animator animator;
-    private CharacterController characterController;
+    new private Collider2D collider;
 
     // run
     private bool isRunning = false;
@@ -42,30 +42,30 @@ public class Dinosaur : MonoBehaviour {
 
     void Awake() {
         animator = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
+        collider = GetComponent<Collider2D>();
     }
 
     void Update() {
         // run
         if (isRunning) {
             // ひたすら右へ
-            characterController.SimpleMove(runSpeed * Vector2.right * Time.deltaTime);
+            collider.transform.Translate(runSpeed * Vector2.right * Time.deltaTime);
         }
         // jump
         switch (jumpState) {
         case JumpState.Jump:
             // 上へ
-            characterController.SimpleMove(jumpSpeed * Vector2.up * Time.deltaTime);
+            collider.transform.Translate(jumpSpeed * Vector2.up * Time.deltaTime);
             if (transform.position.y > jumpHeight) {
                 jumpState = JumpState.Fall;
             }
             break;
         case JumpState.Fall:
             // 下へ
-            characterController.SimpleMove(fallSpeed * Vector2.down * Time.deltaTime);
+            collider.transform.Translate(fallSpeed * Vector2.down * Time.deltaTime);
             if (transform.position.y < 0.01F) {
                 // 地面へ
-                characterController.SimpleMove(new Vector3(transform.position.x, 0.0F, transform.position.z));
+                collider.transform.transform.position = new Vector3(transform.position.x, 0.0F, transform.position.z);
                 jumpState = JumpState.OnGround;
                 animator.SetBool("IsRunning", true);
             }
@@ -76,7 +76,8 @@ public class Dinosaur : MonoBehaviour {
         }
     }
 
-    void OnControllerColliderHit(ControllerColliderHit hit) {
-        Debug.Log(hit.gameObject.tag);
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log(collision.gameObject.tag);
     }
+
 }
