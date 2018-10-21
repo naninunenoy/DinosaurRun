@@ -6,6 +6,7 @@ public class GameMain : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     [SerializeField] Dinosaur dinosaur;
+    [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] Ground ground;
 
     // カメラと恐竜の距離
@@ -24,7 +25,9 @@ public class GameMain : MonoBehaviour
         var cameraX = MoveCamera(mainCamera, dinosaur.transform);
         // カメラ位置がgrandをこえたらステージをスライド
         if (cameraX > ground.Center.x) {
-            ground.AppendAndRemove();
+            var newGround = ground.AppendAndRemove();
+            // 敵の追加
+            enemySpawner.SpawnEnemy(newGround, ground.GrandWidth);
         }
         // キー入力
         if (Input.GetKeyDown(KeyCode.Space)) {

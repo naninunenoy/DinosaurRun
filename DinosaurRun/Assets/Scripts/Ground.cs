@@ -42,7 +42,7 @@ public class Ground : MonoBehaviour
         }
     }
 
-    public void AppendAndRemove() {
+    public Transform AppendAndRemove() {
         var left = grandQueue.Dequeue();
         var leftPos = left.transform.position;
         var rightPos = new Vector3(leftPos.x + elmWidth * grandElmCount, leftPos.y, leftPos.z);
@@ -52,5 +52,6 @@ public class Ground : MonoBehaviour
         // 左端を削除
         Destroy(left);
         AdjustGrands();
+        return right.transform;
     }
 }
