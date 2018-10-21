@@ -11,23 +11,16 @@ public class GameMain : MonoBehaviour
     [SerializeField] Ground ground;
     [SerializeField] Button tapArea;
 
-    // カメラと恐竜の距離
-    float diffOfDinosaurToCamera;
-
-    void Awake() {
-        diffOfDinosaurToCamera = Mathf.Abs(mainCamera.transform.position.x - dinosaur.transform.position.x);
-    }
-
     void Start() {
         dinosaur.IsRunning = true;
         tapArea.onClick.AddListener(() => { dinosaur.Jump(); });// tapでジャンプ
     }
 
     void Update() {
-        // カメラをdinosaurに合わせる
-        var cameraX = MoveCamera(mainCamera, dinosaur.transform);
-        // カメラ位置がgrandをこえたらステージをスライド
-        if (cameraX > ground.Center.x) {
+        // 地形の移動
+        ground.Move();
+        if (ground.Center.x < 0) {
+            // 地形の追加
             var newGround = ground.AppendAndRemove();
             // 敵の追加
             enemySpawner.SpawnEnemy(newGround, ground.GrandWidth);
@@ -36,14 +29,5 @@ public class GameMain : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             dinosaur.Jump();
         }
-    }
-
-    private float MoveCamera(Camera camera, Transform target) {
-        var current = camera.transform.position;
-        var to = new Vector3(target.position.x + diffOfDinosaurToCamera, current.y, current.z);
-        if (to.x > current.x) {
-            camera.transform.position = Vector3.MoveTowards(current, to, 1.0F);
-        }
-        return to.x;
     }
 }

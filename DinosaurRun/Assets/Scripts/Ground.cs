@@ -6,6 +6,7 @@ public class Ground : MonoBehaviour
 {
     [SerializeField] GameObject grandPrefab;
     [SerializeField] int grandElmCount = 4;// 偶数
+    [SerializeField] float moveSpeed = 1.0F;
 
     float elmWidth;
     public float GrandWidth { get { return elmWidth; } }
@@ -20,10 +21,15 @@ public class Ground : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++) {
             var gra = transform.GetChild(i).gameObject;
             grandQueue.Enqueue(gra);
-            
         }
         // 整列
         AdjustGrands();
+    }
+
+    public void Move() {
+        var slide = Vector3.left * moveSpeed * Time.deltaTime;
+        transform.position += slide;
+        center += slide;
     }
 
     private void AdjustGrands() {

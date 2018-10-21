@@ -5,7 +5,6 @@ using UnityEngine;
 public enum JumpState { OnGround = 0, Jump, Fall }
 
 public class Dinosaur : MonoBehaviour {
-    [SerializeField] float runSpeed = 1.0F;
     [SerializeField] float jumpSpeed= 1.0F;
     [SerializeField] float fallSpeed = 1.0F;
     [SerializeField] float jumpHeight = 1.0F;
@@ -46,11 +45,6 @@ public class Dinosaur : MonoBehaviour {
     }
 
     void Update() {
-        // run
-        if (isRunning) {
-            // ひたすら右へ
-            collider.transform.Translate(runSpeed * Vector2.right * Time.deltaTime);
-        }
         // jump
         switch (jumpState) {
         case JumpState.Jump:
