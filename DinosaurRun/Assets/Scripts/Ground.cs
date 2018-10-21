@@ -16,7 +16,7 @@ public class Ground : MonoBehaviour
     public Vector3 Center { get { return center; } }
 
     void Awake() {
-        elmWidth = grandPrefab.GetComponent<SpriteRenderer>().bounds.size.x;
+        elmWidth = grandPrefab.transform.Find("Sprite").GetComponent<SpriteRenderer>().bounds.size.x;
         for (int i = 0; i < transform.childCount; i++) {
             var gra = transform.GetChild(i).gameObject;
             grandQueue.Enqueue(gra);

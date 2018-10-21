@@ -19,6 +19,5 @@ public class EnemySpawner : MonoBehaviour
         // ランダムな位置に敵を生成
         var spawnAt = new Vector3(Random.Range(minX, maxX), center.y + enemyPosY, center.z);
         var enemy = Instantiate(cacutusPrefab, spawnAt, Quaternion.identity, parent);
-        Debug.Log("Spawn Enemy");
     }
 }
