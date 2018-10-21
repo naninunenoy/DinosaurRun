@@ -8,6 +8,13 @@ public class GameMain : MonoBehaviour
     [SerializeField] Dinosaur dinosaur;
     [SerializeField] Ground ground;
 
+    // カメラと恐竜の距離
+    float diffOfDinosaurToCamera;
+
+    void Awake() {
+        diffOfDinosaurToCamera = Mathf.Abs(mainCamera.transform.position.x - dinosaur.transform.position.x);
+    }
+
     void Start() {
         dinosaur.IsRunning = true;
     }
@@ -27,7 +34,7 @@ public class GameMain : MonoBehaviour
 
     private float MoveCamera(Camera camera, Transform target) {
         var current = camera.transform.position;
-        var to = new Vector3(target.position.x, current.y, current.z);
+        var to = new Vector3(target.position.x + diffOfDinosaurToCamera, current.y, current.z);
         if (to.x > current.x) {
             camera.transform.position = Vector3.MoveTowards(current, to, 1.0F);
         }
