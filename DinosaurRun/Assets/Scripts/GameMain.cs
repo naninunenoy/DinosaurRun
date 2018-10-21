@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMain : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameMain : MonoBehaviour
     [SerializeField] Dinosaur dinosaur;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] Ground ground;
+    [SerializeField] Button tapArea;
 
     // カメラと恐竜の距離
     float diffOfDinosaurToCamera;
@@ -18,6 +20,7 @@ public class GameMain : MonoBehaviour
 
     void Start() {
         dinosaur.IsRunning = true;
+        tapArea.onClick.AddListener(() => { dinosaur.Jump(); });// tapでジャンプ
     }
 
     void Update() {
