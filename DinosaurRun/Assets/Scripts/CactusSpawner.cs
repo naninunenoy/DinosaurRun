@@ -5,7 +5,7 @@ using UnityEngine;
 public class CactusSpawner : EnemySpawner {
     [SerializeField] float enemyPosY = 0.6F;
 
-    public override void SpawnEnemy(Transform parent, float areaWidth) {
+    public void SpawnEnemy(Transform parent, float areaWidth) {
         // 敵の生成をランダムに行う
         if (Random.value >= spawnProb) {
             return;

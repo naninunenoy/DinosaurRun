@@ -8,6 +8,4 @@ public abstract class EnemySpawner : MonoBehaviour
     protected GameObject enemyPrefab;
     [SerializeField] [Range(0, 1)]
     protected float spawnProb = 1.0F;
-
-    public abstract void SpawnEnemy(Transform parent, float areaWidth);
 }
