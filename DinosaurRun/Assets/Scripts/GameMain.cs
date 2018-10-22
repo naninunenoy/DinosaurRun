@@ -7,7 +7,7 @@ public class GameMain : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     [SerializeField] Dinosaur dinosaur;
-    [SerializeField] EnemySpawner enemySpawner;
+    [SerializeField] CactusSpawner cacutusSpawner;
     [SerializeField] Ground ground;
     [SerializeField] Button tapArea;
 
@@ -23,7 +23,7 @@ public class GameMain : MonoBehaviour
             // 地形の追加
             var newGround = ground.AppendAndRemove();
             // 敵の追加
-            enemySpawner.SpawnEnemy(newGround, ground.GrandWidth);
+            cacutusSpawner.SpawnEnemy(newGround, ground.GrandWidth);
         }
         // キー入力
         if (Input.GetKeyDown(KeyCode.Space)) {
