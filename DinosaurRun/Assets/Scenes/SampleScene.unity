@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 2106587259}
   - component: {fileID: 2106587260}
   m_Layer: 0
-  m_Name: Enemies
+  m_Name: EnemieSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,6 +1034,14 @@ PrefabInstance:
     - target: {fileID: 3000709762377805943, guid: 8875e09c9fb6883419522d0bd7ff8049, type: 3}
       propertyPath: m_Name
       value: Dinosaur
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000709761328139134, guid: 8875e09c9fb6883419522d0bd7ff8049, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1493106679
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000709761328139134, guid: 8875e09c9fb6883419522d0bd7ff8049, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8875e09c9fb6883419522d0bd7ff8049, type: 3}
