@@ -231,8 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c072acd843f8e84cbb837bfeb55d6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnProb: 1
+  enemyPrefab: {fileID: 927132708342091854, guid: fd0c8e127b562f742ae096099c6dc571, type: 3}
+  spawnProb: 0.0125
+  parent: {fileID: 339282580}
 --- !u!1 &215341361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4579888139145095539, guid: 6743cb12c7370f440b2a0baf52536a4f, type: 3}
@@ -252,6 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 339282580}
+  - component: {fileID: 339282581}
   m_Layer: 0
   m_Name: Sky
   m_TagString: Untagged
@@ -277,6 +279,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339282581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339282579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d35e163f1000f640afbd1a4c7ce7952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {fileID: 1938584079}
+  destroyPos: {fileID: 1073792938}
+  cloud: {fileID: 1306084238}
+  pterosaurSpawner: {fileID: 148829010}
+  cloudSpeed: 0.4
+  enemySpeed: 7.2
 --- !u!114 &344914588 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 344914588, guid: 8875e09c9fb6883419522d0bd7ff8049, type: 3}
@@ -745,8 +765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15999eb5eea498344a4ae26d855b2f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 1938584079}
-  destroyPos: {fileID: 1073792938}
   cloudPrefabs:
   - {fileID: 4125705414385577505, guid: 60ff94dc5c0380e4e9091ef7d6a810e9, type: 3}
   - {fileID: 7129213128247154502, guid: d408d1e875b4e0a4aa266300a3b52073, type: 3}
@@ -757,7 +775,6 @@ MonoBehaviour:
   - {fileID: 1808279756}
   - {fileID: 895746625}
   - {fileID: 65804857}
-  moveSpeed: 0.4
 --- !u!1 &1344021204
 GameObject:
   m_ObjectHideFlags: 0

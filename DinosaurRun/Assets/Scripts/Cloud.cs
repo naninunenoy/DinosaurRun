@@ -5,11 +5,8 @@ using UnityEngine;
 public class Cloud : MonoBehaviour
 {
     const float maxCloudPosY = 2.0F;
-    [SerializeField] Transform spawnPos;
-    [SerializeField] Transform destroyPos;
     [SerializeField] GameObject[] cloudPrefabs;
     [SerializeField] GameObject[] defaultClouds;
-    [SerializeField] float moveSpeed = 1.0F;
 
     HashSet<GameObject> cloudQue = new HashSet<GameObject>();
 
@@ -19,19 +16,14 @@ public class Cloud : MonoBehaviour
         }
     }
 
-    void Update() {
-        Move();
-        CycleCloud();
-    }
-
-    private void Move() {
+    public void Move(float moveSpeed) {
         foreach (var cloud in cloudQue) {
             // 左へ
             cloud.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
     }
 
-    private void CycleCloud() {
+    public void CycleCloud(Transform spawnPos, Transform destroyPos) {
         foreach (var cloud in cloudQue) {
             // 左へはみ出たものは消す
             if (cloud.transform.position.x < destroyPos.position.x) {
