@@ -8,9 +8,25 @@ public class Dinosaur : MonoBehaviour {
     [SerializeField] float jumpSpeed= 1.0F;
     [SerializeField] float fallSpeed = 1.0F;
     [SerializeField] float jumpHeight = 1.0F;
+    [SerializeField] GameObject damagedEyes;
 
     private Animator animator;
     new private Collider2D collider;
+
+    private bool isDamaged = false;
+    public bool IsDamaged {
+        set {
+            // ダメージ状態でないときに、trueを渡されたときのみ設定
+            if (!isDamaged && value) {
+                isDamaged = value;
+                damagedEyes.SetActive(true);
+                StartCoroutine(EyesOffCortutine(0.5F));
+            }
+        }
+        get {
+            return isDamaged;
+        }
+    }
 
     // run
     private bool isRunning = false;
@@ -72,6 +88,13 @@ public class Dinosaur : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log(collision.gameObject.tag);
+        IsDamaged = true;
+    }
+
+    private IEnumerator EyesOffCortutine(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        damagedEyes.SetActive(false);
+        isDamaged = false;
     }
 
 }
