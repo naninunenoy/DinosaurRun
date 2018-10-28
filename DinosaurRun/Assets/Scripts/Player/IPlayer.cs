@@ -5,6 +5,6 @@ using UnityEngine;
 namespace Assets.DinosaurRun.Scripts.Player {
     public interface IPlayer {
         void Jump(float speed);
-        void Damaged(float damage);
+        void Damage(float damage);
     }
 }
