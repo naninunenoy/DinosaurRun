@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0427fa068230b2943a9849275c7289a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 0
   objectSpawnAt: {fileID: 1798841483}
   destroySpawnAt: {fileID: 263753219}
-  coluds: {fileID: 112574701}
   pterosaurSpawner: {fileID: 473928543}
 --- !u!1 &263753218
 GameObject:
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36ac0c00059f7542a2183e5fe1d25d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 0
   objectSpawnAt: {fileID: 1798841483}
   destroySpawnAt: {fileID: 263753219}
   groundSpawner: {fileID: 1176979204}
